@@ -216,15 +216,7 @@ export default {
         canRegister: {
             type: Boolean,
             required: true
-        },
-        laravelVersion: {
-            type: String,
-            required: true
-        },
-        phpVersion: {
-            type: String,
-            required: true
-        },
+        }
     }
 }
 </script>

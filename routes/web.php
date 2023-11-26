@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Models\Cliente;
 use App\Models\Producto;
 use Illuminate\Foundation\Application;
@@ -23,8 +24,7 @@ Route::get('/', function () {
         'canRegister'       => Route::has('register'),
         'laravelVersion'    => Application::VERSION,
         'phpVersion'        => PHP_VERSION,
-        'productos'         => Producto::with('unit')->get(),
-        'clientes'          => Cliente::all(),
+
     ]);
 });
 
@@ -33,7 +33,15 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
+        return Inertia::render(
+            'Dashboard', [
+                'productos'         => Producto::with('unit')->get(),
+                'clientes'          => Cliente::all()
+            ]
+        );
     })->name('dashboard');
+
+    Route::post('/guardar-orden-compra', [OrderController::class, 'guardarOrdenCompra'])->name('guardar.orden.compra');
 });
