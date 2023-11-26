@@ -1,0 +1,27 @@
+[
+    {
+        "nombre": "Metro",
+        "abreviatura": "m",
+        "id": 1
+    },
+    {
+        "nombre": "Centímetro",
+        "abreviatura": "cm",
+        "id": 2
+    },
+    {
+        "nombre": "Pulgada",
+        "abreviatura": "in",
+        "id": 3
+    },
+    {
+        "nombre": "Pie",
+        "abreviatura": "ft",
+        "id": 4
+    },
+    {
+        "nombre": "Kilogramo",
+        "abreviatura": "kg",
+        "id": 5
+    }
+]

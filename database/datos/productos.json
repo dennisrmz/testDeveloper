@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "nombre": "Producto 1",
+        "precio": 25.50,
+        "id_unidad": 4,
+        "descripcion": "Este es el producto 1"
+    },
+    {
+        "id": 2,
+        "nombre": "Producto 2",
+        "precio": 10.75,
+        "id_unidad": 1,
+        "descripcion": "Descripción del producto 2"
+    },
+    {
+        "id": 3,
+        "nombre": "Producto 3",
+        "precio": 50.00,
+        "id_unidad": 2,
+        "descripcion": "Detalle del producto 3"
+    },
+    {
+        "id": 4,
+        "nombre": "Producto 4",
+        "precio": 17.99,
+        "id_unidad": 3,
+        "descripcion": "Descripción del producto 4"
+    },
+    {
+        "id": 5,
+        "nombre": "Producto 5",
+        "precio": 8.25,
+        "id_unidad": 1,
+        "descripcion": "Detalle del producto 5"
+    },
+    {
+        "id": 6,
+        "nombre": "Producto 6",
+        "precio": 30.75,
+        "id_unidad": 4,
+        "descripcion": "Descripción del producto 6"
+    },
+    {
+        "id": 7,
+        "nombre": "Producto 7",
+        "precio": 42.00,
+        "id_unidad": 2,
+        "descripcion": "Detalle del producto 7"
+    },
+    {
+        "id": 8,
+        "nombre": "Producto 8",
+        "precio": 12.99,
+        "id_unidad": 3,
+        "descripcion": "Descripción del producto 8"
+    },
+    {
+        "id": 9,
+        "nombre": "Producto 9",
+        "precio": 19.95,
+        "id_unidad": 1,
+        "descripcion": "Detalle del producto 9"
+    },
+    {
+        "id": 10,
+        "nombre": "Producto 10",
+        "precio": 55.00,
+        "id_unidad": 4,
+        "descripcion": "Descripción del producto 10"
+    }
+]

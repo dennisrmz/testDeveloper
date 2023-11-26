@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->decimal('precio', 10, 2);
+            $table->unsignedBigInteger('id_unidad');
+            $table->foreign('id_unidad')->references('id')->on('unidades');
+            $table->text('descripcion')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
