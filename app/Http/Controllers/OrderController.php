@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DetalleOrden;
 use App\Models\OrdenCompra;
-use App\Models\Producto;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -14,7 +13,6 @@ class OrderController extends Controller
 {
     public function guardarOrdenCompra(Request $request)
     {
-        // dd($request);
         $requestData = $request->validate([
             'fecha'     => 'required|date',
             'productos' => 'required|array',
@@ -63,7 +61,8 @@ class OrderController extends Controller
             $ordenDatos[] = $item;
         }
         return Inertia::render(
-            'OrdenesCompra', [
+            'OrdenesCompra',
+            [
                 'ordenesCompra' => $ordenDatos
             ]
         );
@@ -71,13 +70,46 @@ class OrderController extends Controller
 
     public function verOrdenCompra(OrdenCompra $orden)
     {
-        $ordenCompra = $orden::where('id',$orden->id)->with('detalleOrdenes.producto', 'cliente')->first();
+        $ordenCompra = $orden::where('id', $orden->id)->with('detalleOrdenes.producto', 'cliente')->first();
         // dd($ordenCompra);
         return Inertia::render(
-            'VerOrden', [
+            'VerOrden',
+            [
                 'ordenCompra' => $ordenCompra
             ]
         );
     }
 
+
+
+    /**
+     *
+     * Para orden api
+     */
+
+    public function insertarOrden(Request $request)
+    {
+        try {
+            $requestData = $request->json()->all();
+            $jsonRequestData = json_encode($requestData);
+            // Suponiendo que tienes un modelo llamado OrdenCompra
+            DB::select('CALL InsertarOrdenCompra(?)', [$jsonRequestData]);
+
+            return response()->json(
+                [
+                    'error'     => false,
+                    'mensaje'   => "Datos insertados."
+                ],
+                200
+            );
+        } catch (Exception $th  ) {
+            return response()->json(
+                [
+                    'error'     => true,
+                    'mensaje'   => $th->getMessage()
+                ],
+                200
+            );
+        }
+    }
 }
