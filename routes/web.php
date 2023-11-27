@@ -34,14 +34,16 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-    Route::get('/dashboard', function () {
+    Route::get('/crear-orden-compra', function () {
         return Inertia::render(
             'Dashboard', [
                 'productos'         => Producto::with('unit')->get(),
                 'clientes'          => Cliente::all()
             ]
         );
-    })->name('dashboard');
+    })->name('crear.orden.compra');
 
     Route::post('/guardar-orden-compra', [OrderController::class, 'guardarOrdenCompra'])->name('guardar.orden.compra');
+    Route::get('/ordenes-compra', [OrderController::class, 'ordenesCompra'])->name('ordenes.compra');Route::get('/ordenes-compra', [OrderController::class, 'ordenesCompra'])->name('ordenes.compra');
+    Route::get('/ver-orden-compra/{orden}', [OrderController::class, 'verOrdenCompra'])->name('ver.orden.compra');
 });
